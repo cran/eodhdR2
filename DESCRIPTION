@@ -1,7 +1,7 @@
 Package: eodhdR2
 Type: Package
 Title: Official R API for Fetching Data from 'EODHD'
-Version: 0.5.0
+Version: 0.5.1
 Authors@R: c(
   person(given = c("Marcelo", "S."),
         family = "Perlin",
@@ -24,8 +24,8 @@ Suggests: knitr, rmarkdown, cli, dplyr, fs, glue, httr, jsonlite,
         lubridate, purrr, readr, tidyr, testthat (>= 3.0.0)
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2024-08-29 13:24:04 UTC; msperlin
+Packaged: 2024-09-12 16:37:42 UTC; msperlin
 Author: Marcelo S. Perlin [aut, cre, ctr],
   Unicorn Data Services [cph]
 Repository: CRAN
-Date/Publication: 2024-09-03 15:10:02 UTC
+Date/Publication: 2024-09-12 17:50:09 UTC

@@ -15,8 +15,6 @@
 #' }
 set_token <- function(token = get_demo_token()) {
 
-  Sys.setenv("eodhd-token" = token)
-
   my_quota <- list()
 
   try({
@@ -29,6 +27,10 @@ set_token <- function(token = get_demo_token()) {
     )
   }
 
+  # set the token only after it is known to work, so a failed call does not
+  # leave a bad token behind for every later get_token()
+  Sys.setenv("eodhd-token" = token)
+
   cli::cli_alert_success("eodhd API token set")
   cli::cli_alert_info("Account name: {my_quota$name} ({my_quota$email})")
   cli::cli_alert_info("Quota: {my_quota$apiRequests} | {my_quota$dailyRateLimit}")
@@ -37,7 +39,7 @@ set_token <- function(token = get_demo_token()) {
   if (token == get_demo_token()) {
     cat('\n')
     cli::cli_alert_danger(
-      "You are using a **DEMONSTRATION** token for testing pourposes, with
+      "You are using a **DEMONSTRATION** token for testing purposes, with
       limited access to the data repositories. See {.url https://eodhd.com/}
       for registration and, after finding your token, use it with
       function eodhdR2::set_token(\"TOKEN\").")

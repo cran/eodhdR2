@@ -38,12 +38,12 @@ get_dividends <- function(ticker = "AAPL", exchange = "US",
 
   } else {
     url <- glue::glue(
-      'https://eodhd.com/api/div/{ticker}.{exchange}?api_token={token}&fmt=json'
+      '{get_base_url()}/div/{ticker}.{exchange}?api_token={token}&fmt=json'
       )
 
     content <- query_api(url)
 
-    if (content == "[]") {
+    if (is_empty_body(content)) {
       cli::cli_alert_danger("cant find dividend data for {ticker}|{exchange}")
 
       df_div <- dplyr::tibble()
